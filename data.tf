@@ -6,12 +6,7 @@ data "aws_region" "current" {}
 #data "aws_ebs_encryption_by_default" "current" {}
 
 locals {
-  map_acct = {
-    330257083883 = "billing"
-    872499233454 = "dev"
-    326609289561 = "prod"
-    248310287184 = "security"
-  }
+
   acct_id = data.aws_caller_identity.current.account_id
   acct    = local.map_acct[local.acct_id]
   region  = data.aws_region.current.name
